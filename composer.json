@@ -1,0 +1,21 @@
+{
+    "name": "code-foundation/flow-config-symfony",
+    "description": "Symfony bundle for code-foundation/flow-config",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Edward Murrell",
+            "email": "edward.murrell@codefoundation.com.au"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+	"php": ">=7.1.0",
+        "code-foundation/flow-config": "^0.0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7",
+        "squizlabs/php_codesniffer": "*"
+    }
+}
