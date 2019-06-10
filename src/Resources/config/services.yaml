@@ -17,6 +17,10 @@ services:
     - '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
     - '@CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig'
 
+  CodeFoundation\FlowConfig\Interfaces\ReadonlyConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\ReadonlyConfig'
+  CodeFoundation\FlowConfig\Interfaces\ConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
+  CodeFoundation\FlowConfig\Interfaces\EntityConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig'
+
   flowconfig.system:
     class: CodeFoundation\FlowConfig\Repository\DoctrineConfig
     public: true
