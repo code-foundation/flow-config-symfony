@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace CodeFoundation\Bundle\FlowConfigBundle;
 
+use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\CodeFoundationFlowConfigExtension;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -55,6 +56,14 @@ class CodeFoundationFlowConfigBundle extends Bundle
                 $aliasMap
             )
         );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContainerExtension()
+    {
+        return new CodeFoundationFlowConfigExtension();
     }
 
     /**
