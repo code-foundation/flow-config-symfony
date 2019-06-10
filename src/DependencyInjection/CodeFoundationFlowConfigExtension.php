@@ -17,13 +17,15 @@ class CodeFoundationFlowConfigExtension extends Extension
 
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(dirname(__DIR__) . '/Resources/config')
         );
         $loader->load('services.yaml');
+
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+        $definition = $container->getDefinition('CodeFoundation\FlowConfig\Repository\ReadonlyConfig'); # TODO Replace with service definition
+        $definition->replaceArgument('$config', $config['defaults']);
     }
 }

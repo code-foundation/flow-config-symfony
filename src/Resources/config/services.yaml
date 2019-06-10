@@ -4,7 +4,7 @@ services:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
   CodeFoundation\FlowConfig\Repository\ReadonlyConfig:
     arguments:
-      $config: "%defaults%"
+      $config: []
 
   CodeFoundation\FlowConfig\Repository\DoctrineConfig: ~
   CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig: ~
