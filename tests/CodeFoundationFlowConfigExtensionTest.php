@@ -5,6 +5,7 @@ namespace Tests\CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection;
 
 use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\CodeFoundationFlowConfigExtension;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class CodeFoundationFlowConfigExtensionTest extends TestCase
 {
@@ -16,5 +17,20 @@ class CodeFoundationFlowConfigExtensionTest extends TestCase
         $extension = new CodeFoundationFlowConfigExtension();
 
         self::assertSame('flow_config', $extension->getAlias());
+    }
+
+    /**
+     * Test configurations are loaded.
+     */
+    public function testDefaultConfig(): void
+    {
+        $extension = new CodeFoundationFlowConfigExtension();
+
+        $container = new ContainerBuilder(null);
+        $extension->load([], $container);
+
+        $configs = $extension->getProcessedConfigs();
+
+        self::assertSame([['defaults' => [] ]], $configs);
     }
 }
