@@ -18,8 +18,6 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->arrayNode('defaults')
-                #->requiresAtLeastOneElement()
-                #->useAttributeAsKey('name')
                ->prototype('scalar')->end()
             ->end()
         ;
