@@ -33,4 +33,19 @@ class CodeFoundationFlowConfigExtensionTest extends TestCase
 
         self::assertSame([['defaults' => [] ]], $configs);
     }
+
+    /**
+     * Test configurations are loaded.
+     */
+    public function testOverriddenDefaults(): void
+    {
+        $extension = new CodeFoundationFlowConfigExtension();
+
+        $container = new ContainerBuilder(null);
+        $extension->load(['flow_config' => ['defaults' => ['abc' => '123', 'some.other' => true]]], $container);
+
+        $configs = $extension->getProcessedConfigs();
+
+        self::assertSame([['defaults' => ['abc' => '123', 'some.other' => true]]], $configs);
+    }
 }
