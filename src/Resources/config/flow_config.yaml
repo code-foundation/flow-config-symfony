@@ -1,0 +1,5 @@
+# This is example configuration file. Copy it to your app/config/packages directory.
+flow_config:
+  defaults: # Set your application defaults here.
+    user.email.format: html
+    system.saml.id: 12345678901234567890

@@ -1,0 +1,29 @@
+services:
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+  CodeFoundation\FlowConfig\Repository\ReadonlyConfig:
+    arguments:
+      $config: []
+
+  CodeFoundation\FlowConfig\Repository\DoctrineConfig: ~
+  CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig: ~
+
+  CodeFoundation\FlowConfig\Repository\CascadeConfig:
+    class:
+    public: true
+    arguments:
+    - '@CodeFoundation\FlowConfig\Repository\ReadonlyConfig'
+    - '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
+    - '@CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig'
+
+  CodeFoundation\FlowConfig\Interfaces\ReadonlyConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\ReadonlyConfig'
+  CodeFoundation\FlowConfig\Interfaces\ConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
+  CodeFoundation\FlowConfig\Interfaces\EntityConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig'
+
+  flowconfig.system:
+    class: CodeFoundation\FlowConfig\Repository\DoctrineConfig
+    public: true
+  flowconfig.entity:
+    class: CodeFoundation\FlowConfig\Repository\CascadeConfig
+    public: true
