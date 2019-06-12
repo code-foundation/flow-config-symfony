@@ -7,6 +7,9 @@ use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\CodeFoundationFlo
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
+/**
+ * @covers \CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\CodeFoundationFlowConfigExtension
+ */
 class CodeFoundationFlowConfigExtensionTest extends TestCase
 {
     /**
