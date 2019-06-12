@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * @covers \CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\CodeFoundationFlowConfigExtension
+ * @covers CodeFoundationFlowConfigExtension
  */
 class CodeFoundationFlowConfigExtensionTest extends TestCase
 {
