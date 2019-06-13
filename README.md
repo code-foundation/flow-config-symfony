@@ -1,3 +1,8 @@
+[![CircleCI](https://circleci.com/gh/code-foundation/flow-config-symfony.svg?style=svg)](https://circleci.com/gh/code-foundation/flow-config-symfony)
+
+[![codecov](https://codecov.io/gh/code-foundation/flow-config-symfony/branch/master/graph/badge.svg)](https://codecov.io/gh/code-foundation/flow-config-symfony)
+
+
 # Introduction
 
 Flow Config is a key value configuration platform built on top of doctrine. It provides an PHP API for setting configuration
