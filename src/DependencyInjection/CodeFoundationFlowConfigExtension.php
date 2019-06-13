@@ -10,11 +10,17 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class CodeFoundationFlowConfigExtension extends Extension
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getAlias(): string
     {
         return 'flow_config';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new YamlFileLoader(
@@ -25,7 +31,8 @@ class CodeFoundationFlowConfigExtension extends Extension
 
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        $definition = $container->getDefinition('CodeFoundation\FlowConfig\Repository\ReadonlyConfig'); # TODO Replace with service definition
+        # TODO Replace with service definition
+        $definition = $container->getDefinition('CodeFoundation\FlowConfig\Repository\ReadonlyConfig');
         $definition->replaceArgument('$config', $config['defaults']);
     }
 }
