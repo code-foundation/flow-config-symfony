@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.2
 jobs:
   build:
     working_directory: ~/flowconfig
@@ -18,6 +20,8 @@ jobs:
         name: Run Unit tests
         command: vendor/bin/phpunit --log-junit build/phpunit/junit.xml --coverage-clover build/phpunit/coverage.xml
     - store_test_results:
-        path:  build
+        path: build
     - store_artifacts:
-        path:  build/phpunit/coverage.xml
+        path: build/phpunit/coverage.xml
+    - codecov/upload:
+        file: build/phpunit/coverage.xml
