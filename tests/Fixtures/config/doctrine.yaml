@@ -1,0 +1,6 @@
+# Configuration for use with BundleTestKernel
+doctrine:
+  dbal:
+    url: 'sqlite:///:memory:'
+  orm:
+    auto_mapping: true
