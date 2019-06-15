@@ -9,6 +9,8 @@ use CodeFoundation\FlowConfig\Entity\ConfigItem;
 use CodeFoundation\FlowConfig\Entity\EntityConfigItem;
 use CodeFoundation\FlowConfig\Repository\CascadeConfig;
 use CodeFoundation\FlowConfig\Repository\DoctrineConfig;
+use CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig;
+use CodeFoundation\FlowConfig\Repository\ReadonlyConfig;
 use Doctrine\ORM\Tools\SchemaTool;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\Container;
@@ -22,11 +24,15 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
     {
         $container = $this->getContainer();
 
+        $readonlyConfigService = $container->get('flowconfig.ro');
         $configService = $container->get('flowconfig.system');
         $entityConfigService = $container->get('flowconfig.entity');
+        $cascadeServiceConfig = $container->get('flowconfig.cascade');
 
+        self::assertInstanceOf(ReadonlyConfig::class, $readonlyConfigService);
         self::assertInstanceOf(DoctrineConfig::class, $configService);
-        self::assertInstanceOf(CascadeConfig::class, $entityConfigService);
+        self::assertInstanceOf(DoctrineEntityConfig::class, $entityConfigService);
+        self::assertInstanceOf(CascadeConfig::class, $cascadeServiceConfig);
     }
 
     /**
