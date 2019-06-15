@@ -54,7 +54,7 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
     public function testEmptyResultsEntity(): void
     {
         $configService = $this->getContainer()->get('flowconfig.entity');
-        $entity = new EntityStub('user','888');
+        $entity = new EntityStub('user', '888');
 
         /** @var $configService \CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig */
         $response = $configService->getByEntity($entity, 'key.setting');
@@ -70,7 +70,7 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
         $roConfig = $this->getContainer()->get('flowconfig.ro');
         $systemConfig = $this->getContainer()->get('flowconfig.system');
         $entityConfig = $this->getContainer()->get('flowconfig.entity');
-        $entity = new EntityStub('user','123456');
+        $entity = new EntityStub('user', '123456');
 
         $roResponse = $roConfig->get('user.email.format');
         $systemResponse = $systemConfig->get('user.email.format');
