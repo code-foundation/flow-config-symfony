@@ -11,7 +11,6 @@ services:
 
   CodeFoundation\FlowConfig\Repository\CascadeConfig:
     class:
-    public: true
     arguments:
     - '@CodeFoundation\FlowConfig\Repository\ReadonlyConfig'
     - '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
@@ -21,9 +20,15 @@ services:
   CodeFoundation\FlowConfig\Interfaces\ConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
   CodeFoundation\FlowConfig\Interfaces\EntityConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig'
 
+  flowconfig.ro:
+    alias: CodeFoundation\FlowConfig\Repository\ReadonlyConfig
+    public: true
   flowconfig.system:
-    class: CodeFoundation\FlowConfig\Repository\DoctrineConfig
+    alias: CodeFoundation\FlowConfig\Repository\DoctrineConfig
     public: true
   flowconfig.entity:
-    class: CodeFoundation\FlowConfig\Repository\CascadeConfig
+    alias: CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig
+    public: true
+  flowconfig.cascade:
+    alias: CodeFoundation\FlowConfig\Repository\CascadeConfig
     public: true
