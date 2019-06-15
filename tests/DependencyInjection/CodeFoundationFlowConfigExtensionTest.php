@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection;
+namespace CodeFoundation\Bundle\FlowConfigBundle\Tests\DependencyInjection;
 
 use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\CodeFoundationFlowConfigExtension;
 use PHPUnit\Framework\TestCase;

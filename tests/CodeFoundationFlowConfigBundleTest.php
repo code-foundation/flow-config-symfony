@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\CodeFoundation\Bundle\FlowConfigBundle;
+namespace CodeFoundation\Bundle\FlowConfigBundle\Tests;
 
 use CodeFoundation\Bundle\FlowConfigBundle\CodeFoundationFlowConfigBundle;
 use CodeFoundation\Bundle\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
