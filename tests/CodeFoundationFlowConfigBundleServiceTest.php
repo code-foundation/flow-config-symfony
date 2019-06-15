@@ -63,19 +63,22 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
     }
 
     /**
-     * Test the resolution of null keys from Entity config.
+     * Test the resolution of ac keys from Entity config.
      */
     public function testDefaults(): void
     {
+        $roConfig = $this->getContainer()->get('flowconfig.ro');
         $systemConfig = $this->getContainer()->get('flowconfig.system');
         $entityConfig = $this->getContainer()->get('flowconfig.entity');
         $entity = new EntityStub('user','123456');
 
+        $roResponse = $roConfig->get('user.email.format');
         $systemResponse = $systemConfig->get('user.email.format');
         $entityResponse = $entityConfig->getByEntity($entity, 'user.email.format');
 
-        self::assertSame('text', $systemResponse);
-        self::assertSame('text', $entityResponse);
+        self::assertSame('text', $roResponse);
+        self::assertNull($systemResponse);
+        self::assertNull($entityResponse);
     }
 
     /**
