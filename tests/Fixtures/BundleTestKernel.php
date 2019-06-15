@@ -24,5 +24,6 @@ class BundleTestKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__ . '/config/doctrine.yaml');
+        $loader->load(__DIR__ . '/config/flow_config.yaml');
     }
 }

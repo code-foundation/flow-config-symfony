@@ -17,8 +17,6 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
 {
     /**
      * Test the resolution of the correct services from the container.
-     *
-     * @throws \Doctrine\ORM\Tools\ToolsException
      */
     public function testGettingServices(): void
     {
@@ -56,6 +54,22 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
         $response = $configService->getByEntity($entity, 'key.setting');
 
         self::assertNull($response);
+    }
+
+    /**
+     * Test the resolution of null keys from Entity config.
+     */
+    public function testDefaults(): void
+    {
+        $systemConfig = $this->getContainer()->get('flowconfig.system');
+        $entityConfig = $this->getContainer()->get('flowconfig.entity');
+        $entity = new EntityStub('user','123456');
+
+        $systemResponse = $systemConfig->get('user.email.format');
+        $entityResponse = $entityConfig->getByEntity($entity, 'user.email.format');
+
+        self::assertSame('text', $systemResponse);
+        self::assertSame('text', $entityResponse);
     }
 
     /**
