@@ -14,9 +14,15 @@ use CodeFoundation\FlowConfig\Repository\ReadonlyConfig;
 use Doctrine\ORM\Tools\SchemaTool;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class CodeFoundationFlowConfigBundleServiceTest extends TestCase
 {
+    /**
+     * @var \Symfony\Component\DependencyInjection\ContainerInterface
+     */
+    private $container;
+
     /**
      * Test the resolution of the correct services from the container.
      */
@@ -107,14 +113,18 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
     /**
      * Build a configured symfony container.
      *
-     * @returns \Symfony\Component\DependencyInjection\Container
+     * @returns \Symfony\Component\DependencyInjection\ContainerInterface
      */
-    private function getContainer(): Container
+    private function getContainer(): ContainerInterface
     {
+        if ($this->container !== null) {
+            return $this->container;
+        }
+
         $kernel = new BundleTestKernel('test', true);
         $kernel->boot();
-        $container = $kernel->getContainer();
-        $entityManager = $container->get('doctrine.orm.default_entity_manager');
+        $this->container = $kernel->getContainer();
+        $entityManager = $this->container->get('doctrine.orm.default_entity_manager');
 
         $schemaTool = new SchemaTool($entityManager);
         $schemaTool->createSchema([
@@ -122,6 +132,6 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
             $entityManager->getClassMetadata(EntityConfigItem::class)
         ]);
 
-        return $container;
+        return $this->container;
     }
 }
