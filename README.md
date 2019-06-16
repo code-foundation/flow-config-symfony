@@ -17,6 +17,42 @@ This package provides a Symfony 4 bundle for installing flow-config.
 composer require code-foundation/flow-config-symfony
 ```
 
+Add this bundle to your `bundles.php`
+
+```
+// app/config/bundles.php
+<?php
+
+return [
+    CodeFoundation\Bundle\FlowConfigBundle\CodeFoundationFlowConfigBundle::class => ['all' => true],
+];
+```
+
+Add a default yaml configuration file for your configuration defaults in `flow_config.yaml`
+
+Note that the keys are evaluated as strings, the dot separation and prefixes of 'user' and 'system' are convention only,
+ and do not have special meaning to flow config.
+
+```
+// app/config/packages/flow_config.yaml
+flow_config:
+  defaults:
+    user.email.format: html
+    user.timezone: UTC
+    system.adminuser: admin
+```
+
+The bundle preconfigures the following services. In almost all cases, you want to use `flowconfig.cascade`
+
+| Alias              | interface | class
+| ---                | ---       | ---
+| `flowconfig.cascade` | `CompositeConfigRepositoryInterface` | `CodeFoundation\FlowConfig\Repository\CascadeConfig`
+| `flowconfig.entity` | `EntityConfigRepositoryInterface` | `CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig`
+| `flowconfig.system` | `ConfigRepositoryInterface` | `CodeFoundation\FlowConfig\Repository\DoctrineConfig`
+| `flowconfig.ro` | `ReadonlyConfigRepositoryInterface` | `CodeFoundation\FlowConfig\Repository\ReadonlyConfig`
+
+Entities passed to `setByEntity()` and `getByEntity()` must implement `CodeFoundation\FlowConfig\InterfacesEntityIdentifier`.
+
 # Supported platforms
 * PHP 7.1+
 * Symfony 4
