@@ -1,7 +1,6 @@
-[![CircleCI](https://circleci.com/gh/code-foundation/flow-config-symfony.svg?style=svg)](https://circleci.com/gh/code-foundation/flow-config-symfony)
+# Status
 
-[![codecov](https://codecov.io/gh/code-foundation/flow-config-symfony/branch/master/graph/badge.svg)](https://codecov.io/gh/code-foundation/flow-config-symfony)
-
+[![Latest Stable Version](https://poser.pugx.org/code-foundation/flow-config-symfony/v/stable)](https://packagist.org/packages/code-foundation/flow-config-symfony) [![License](https://poser.pugx.org/code-foundation/flow-config-symfony/license)](https://packagist.org/packages/code-foundation/flow-config-symfony) [![codecov](https://codecov.io/gh/code-foundation/flow-config-symfony/branch/master/graph/badge.svg)](https://codecov.io/gh/code-foundation/flow-config-symfony) [![CircleCI](https://circleci.com/gh/code-foundation/flow-config-symfony.svg?style=svg)](https://circleci.com/gh/code-foundation/flow-config-symfony)
 
 # Introduction
 
