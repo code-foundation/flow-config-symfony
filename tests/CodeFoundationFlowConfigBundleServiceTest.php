@@ -82,6 +82,29 @@ class CodeFoundationFlowConfigBundleServiceTest extends TestCase
     }
 
     /**
+     * Test the resolution of ac keys from Entity config.
+     */
+    public function testSystemOverridesDefault(): void
+    {
+        $roConfig = $this->getContainer()->get('flowconfig.ro');
+        $systemConfig = $this->getContainer()->get('flowconfig.system');
+        $entityConfig = $this->getContainer()->get('flowconfig.entity');
+        $flowConfig = $this->getContainer()->get('flowconfig.cascade');
+        $entity = new EntityStub('user', '123456');
+        $systemConfig->set('user.email.format', 'html');
+
+        $roResponse = $roConfig->get('user.email.format');
+        $systemResponse = $systemConfig->get('user.email.format');
+        $entityResponse = $entityConfig->getByEntity($entity, 'user.email.format');
+        $flowConfigResponse = $flowConfig->getByEntity($entity, 'user.email.format');
+
+        self::assertSame('text', $roResponse);
+        self::assertSame('html', $systemResponse);
+        self::assertNull($entityResponse);
+        self::assertSame('html', $flowConfigResponse);
+    }
+
+    /**
      * Build a configured symfony container.
      *
      * @returns \Symfony\Component\DependencyInjection\Container
