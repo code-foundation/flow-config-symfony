@@ -13,7 +13,6 @@ use CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig;
 use CodeFoundation\FlowConfig\Repository\ReadonlyConfig;
 use Doctrine\ORM\Tools\SchemaTool;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class CodeFoundationFlowConfigBundleServiceTest extends TestCase
