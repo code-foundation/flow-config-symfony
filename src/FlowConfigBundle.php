@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle;
+namespace CodeFoundation\FlowConfigBundle;
 
-use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\CodeFoundationFlowConfigExtension;
+use CodeFoundation\FlowConfigBundle\DependencyInjection\FlowConfigExtension;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class CodeFoundationFlowConfigBundle extends Bundle
+class FlowConfigBundle extends Bundle
 {
     /**
      * Configure Flow Config Symfony bundle.
@@ -63,7 +63,7 @@ class CodeFoundationFlowConfigBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return new CodeFoundationFlowConfigExtension();
+        return new FlowConfigExtension();
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle\Tests\Stubs;
+namespace CodeFoundation\FlowConfigBundle\Tests\Stubs;
 
 use CodeFoundation\FlowConfig\Interfaces\EntityIdentifier;
 

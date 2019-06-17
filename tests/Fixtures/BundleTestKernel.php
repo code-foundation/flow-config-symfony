@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle\Tests\Fixtures;
+namespace CodeFoundation\FlowConfigBundle\Tests\Fixtures;
 
-use CodeFoundation\Bundle\FlowConfigBundle\CodeFoundationFlowConfigBundle;
+use CodeFoundation\FlowConfigBundle\FlowConfigBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
 /**
- * Kernel for testing CodeFoundationFlowConfigBundle
+ * Kernel for testing FlowConfigBundle
  */
 class BundleTestKernel extends Kernel
 {
@@ -17,7 +17,7 @@ class BundleTestKernel extends Kernel
     {
         return [
             new DoctrineBundle(),
-            new CodeFoundationFlowConfigBundle(),
+            new FlowConfigBundle(),
         ];
     }
 

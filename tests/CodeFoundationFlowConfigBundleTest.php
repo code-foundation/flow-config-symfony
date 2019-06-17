@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle\Tests;
+namespace CodeFoundation\FlowConfigBundle\Tests;
 
-use CodeFoundation\Bundle\FlowConfigBundle\CodeFoundationFlowConfigBundle;
-use CodeFoundation\Bundle\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
+use CodeFoundation\FlowConfigBundle\FlowConfigBundle;
+use CodeFoundation\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
 use CodeFoundation\FlowConfig\Entity\ConfigItem;
 use CodeFoundation\FlowConfig\Entity\EntityConfigItem;
 use Doctrine\ORM\Tools\SchemaTool;
@@ -12,16 +12,16 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * @covers \CodeFoundation\Bundle\FlowConfigBundle\CodeFoundationFlowConfigBundle
+ * @covers \CodeFoundation\FlowConfigBundle\FlowConfigBundle
  */
-class CodeFoundationFlowConfigBundleTest extends TestCase
+class FlowConfigBundleTest extends TestCase
 {
     /**
      * Test the alias naming for this bundle.
      */
     public function testBuildWithEmptyContainerDoesNotCrash(): void
     {
-        $bundle = new CodeFoundationFlowConfigBundle();
+        $bundle = new FlowConfigBundle();
         $container = new ContainerBuilder(null);
 
         $bundle->build($container);
