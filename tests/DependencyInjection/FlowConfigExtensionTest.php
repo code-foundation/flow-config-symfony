@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle\Tests\DependencyInjection;
+namespace CodeFoundation\FlowConfigBundle\Tests\DependencyInjection;
 
-use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\FlowConfigExtension;
+use CodeFoundation\FlowConfigBundle\DependencyInjection\FlowConfigExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

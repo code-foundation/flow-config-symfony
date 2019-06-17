@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle\Tests\Fixtures;
+namespace CodeFoundation\FlowConfigBundle\Tests\Fixtures;
 
-use CodeFoundation\Bundle\FlowConfigBundle\FlowConfigBundle;
+use CodeFoundation\FlowConfigBundle\FlowConfigBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle;
+namespace CodeFoundation\FlowConfigBundle;
 
-use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\FlowConfigExtension;
+use CodeFoundation\FlowConfigBundle\DependencyInjection\FlowConfigExtension;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;

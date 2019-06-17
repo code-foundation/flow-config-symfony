@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle\Tests;
+namespace CodeFoundation\FlowConfigBundle\Tests;
 
-use CodeFoundation\Bundle\FlowConfigBundle\FlowConfigBundle;
-use CodeFoundation\Bundle\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
+use CodeFoundation\FlowConfigBundle\FlowConfigBundle;
+use CodeFoundation\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
 use CodeFoundation\FlowConfig\Entity\ConfigItem;
 use CodeFoundation\FlowConfig\Entity\EntityConfigItem;
 use Doctrine\ORM\Tools\SchemaTool;
@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * @covers \CodeFoundation\Bundle\FlowConfigBundle\FlowConfigBundle
+ * @covers \CodeFoundation\FlowConfigBundle\FlowConfigBundle
  */
 class FlowConfigBundleTest extends TestCase
 {

@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "CodeFoundation\\Bundle\\FlowConfigBundle\\": "src/"
+            "CodeFoundation\\FlowConfigBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodeFoundation\\Bundle\\FlowConfigBundle\\Tests\\": "tests/"
+            "CodeFoundation\\FlowConfigBundle\\Tests\\": "tests/"
         }
     }
 }

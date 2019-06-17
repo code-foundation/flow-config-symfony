@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace CodeFoundation\Bundle\FlowConfigBundle\Tests;
+namespace CodeFoundation\FlowConfigBundle\Tests;
 
-use CodeFoundation\Bundle\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
-use CodeFoundation\Bundle\FlowConfigBundle\Tests\Stubs\EntityStub;
+use CodeFoundation\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
+use CodeFoundation\FlowConfigBundle\Tests\Stubs\EntityStub;
 use CodeFoundation\FlowConfig\Entity\ConfigItem;
 use CodeFoundation\FlowConfig\Entity\EntityConfigItem;
 use CodeFoundation\FlowConfig\Repository\CascadeConfig;
