@@ -23,7 +23,7 @@ Add this bundle to your `bundles.php`
 <?php
 
 return [
-    CodeFoundation\Bundle\FlowConfigBundle\CodeFoundationFlowConfigBundle::class => ['all' => true],
+    CodeFoundation\FlowConfigBundle\FlowConfigBundle::class => ['all' => true],
 ];
 ```
 
