@@ -3,21 +3,21 @@ declare(strict_types=1);
 
 namespace CodeFoundation\Bundle\FlowConfigBundle\Tests\DependencyInjection;
 
-use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\CodeFoundationFlowConfigExtension;
+use CodeFoundation\Bundle\FlowConfigBundle\DependencyInjection\FlowConfigExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * @covers CodeFoundationFlowConfigExtension
+ * @covers FlowConfigExtension
  */
-class CodeFoundationFlowConfigExtensionTest extends TestCase
+class FlowConfigExtensionTest extends TestCase
 {
     /**
      * Test the alias naming for this bundle.
      */
     public function testAlias(): void
     {
-        $extension = new CodeFoundationFlowConfigExtension();
+        $extension = new FlowConfigExtension();
 
         self::assertSame('flow_config', $extension->getAlias());
     }
@@ -27,7 +27,7 @@ class CodeFoundationFlowConfigExtensionTest extends TestCase
      */
     public function testDefaultConfig(): void
     {
-        $extension = new CodeFoundationFlowConfigExtension();
+        $extension = new FlowConfigExtension();
 
         $container = new ContainerBuilder(null);
         $extension->load([], $container);
@@ -42,7 +42,7 @@ class CodeFoundationFlowConfigExtensionTest extends TestCase
      */
     public function testOverriddenDefaults(): void
     {
-        $extension = new CodeFoundationFlowConfigExtension();
+        $extension = new FlowConfigExtension();
 
         $container = new ContainerBuilder(null);
         $extension->load(['flow_config' => ['defaults' => ['abc' => '123', 'some.other' => true]]], $container);

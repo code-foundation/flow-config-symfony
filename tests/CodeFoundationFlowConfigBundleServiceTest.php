@@ -15,7 +15,7 @@ use Doctrine\ORM\Tools\SchemaTool;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class CodeFoundationFlowConfigBundleServiceTest extends TestCase
+class FlowConfigBundleServiceTest extends TestCase
 {
     /**
      * @var \Symfony\Component\DependencyInjection\ContainerInterface
