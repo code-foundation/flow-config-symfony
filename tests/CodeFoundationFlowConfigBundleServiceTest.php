@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 namespace CodeFoundation\FlowConfigBundle\Tests;
 
+use CodeFoundation\FlowConfig\Interfaces\CompositeConfigRepositoryInterface;
+use CodeFoundation\FlowConfig\Interfaces\ConfigRepositoryInterface;
+use CodeFoundation\FlowConfig\Interfaces\EntityConfigRepositoryInterface;
+use CodeFoundation\FlowConfig\Interfaces\ReadonlyConfigRepositoryInterface;
 use CodeFoundation\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
 use CodeFoundation\FlowConfigBundle\Tests\Stubs\EntityStub;
 use CodeFoundation\FlowConfig\Entity\ConfigItem;
@@ -25,7 +29,7 @@ class FlowConfigBundleServiceTest extends TestCase
     /**
      * Test the resolution of the correct services from the container.
      */
-    public function testGettingServices(): void
+    public function testGettingServicesByAlias(): void
     {
         $container = $this->getContainer();
 
@@ -33,6 +37,24 @@ class FlowConfigBundleServiceTest extends TestCase
         $configService = $container->get('flowconfig.system');
         $entityConfigService = $container->get('flowconfig.entity');
         $cascadeServiceConfig = $container->get('flowconfig.cascade');
+
+        self::assertInstanceOf(ReadonlyConfig::class, $readonlyConfigService);
+        self::assertInstanceOf(DoctrineConfig::class, $configService);
+        self::assertInstanceOf(DoctrineEntityConfig::class, $entityConfigService);
+        self::assertInstanceOf(CascadeConfig::class, $cascadeServiceConfig);
+    }
+
+    /**
+     * Test the resolution of services from the container to allow autowiring.
+     */
+    public function testGettingServicesByInterface(): void
+    {
+        $container = $this->getContainer();
+
+        $readonlyConfigService = $container->get(ReadonlyConfigRepositoryInterface::class);
+        $configService = $container->get(ConfigRepositoryInterface::class);
+        $entityConfigService = $container->get(EntityConfigRepositoryInterface::class);
+        $cascadeServiceConfig = $container->get(CompositeConfigRepositoryInterface::class);
 
         self::assertInstanceOf(ReadonlyConfig::class, $readonlyConfigService);
         self::assertInstanceOf(DoctrineConfig::class, $configService);
