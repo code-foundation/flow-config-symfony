@@ -16,9 +16,18 @@ services:
     - '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
     - '@CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig'
 
-  CodeFoundation\FlowConfig\Interfaces\ReadonlyConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\ReadonlyConfig'
-  CodeFoundation\FlowConfig\Interfaces\ConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
-  CodeFoundation\FlowConfig\Interfaces\EntityConfigRepositoryInterface: '@CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig'
+  CodeFoundation\FlowConfig\Interfaces\ReadonlyConfigRepositoryInterface:
+    alias: CodeFoundation\FlowConfig\Repository\ReadonlyConfig
+    public: true
+  CodeFoundation\FlowConfig\Interfaces\ConfigRepositoryInterface:
+    alias: CodeFoundation\FlowConfig\Repository\DoctrineConfig
+    public: true
+  CodeFoundation\FlowConfig\Interfaces\EntityConfigRepositoryInterface:
+    alias: CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig
+    public: true
+  CodeFoundation\FlowConfig\Interfaces\CompositeConfigRepositoryInterface:
+    alias: CodeFoundation\FlowConfig\Repository\CascadeConfig
+    public: true
 
   flowconfig.ro:
     alias: CodeFoundation\FlowConfig\Repository\ReadonlyConfig
