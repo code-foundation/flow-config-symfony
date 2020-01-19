@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-	"php": ">=7.1.0",
+	"php": ">=7.3.0",
         "code-foundation/flow-config": "^0.0.4",
         "symfony/framework-bundle": "^4.0",
         "doctrine/doctrine-bundle": "^1.11",
