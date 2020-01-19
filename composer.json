@@ -12,7 +12,7 @@
     "minimum-stability": "stable",
     "require": {
 	"php": ">=7.3.0",
-        "code-foundation/flow-config": "^0.0.4",
+        "code-foundation/flow-config": "^0.3.0",
         "symfony/framework-bundle": "^4.0",
         "doctrine/doctrine-bundle": "^1.11",
         "symfony/dependency-injection": "^4.0",
