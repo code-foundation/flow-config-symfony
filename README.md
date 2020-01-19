@@ -53,9 +53,9 @@ The bundle preconfigures the following services. In almost all cases, you want t
 Entities passed to `setByEntity()` and `getByEntity()` must implement `CodeFoundation\FlowConfig\InterfacesEntityIdentifier`.
 
 # Supported platforms
-* PHP 7.1+
-* Symfony 4
-* Doctrine
+* PHP 7.3+
+* Symfony 4.x
+* Doctrine 2.x
 
 # Contact
 
