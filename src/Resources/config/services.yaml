@@ -16,16 +16,16 @@ services:
     - '@CodeFoundation\FlowConfig\Repository\DoctrineConfig'
     - '@CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig'
 
-  CodeFoundation\FlowConfig\Interfaces\ReadonlyConfigRepositoryInterface:
+  CodeFoundation\FlowConfig\Interfaces\Repository\ReadonlyConfigRepositoryInterface:
     alias: CodeFoundation\FlowConfig\Repository\ReadonlyConfig
     public: true
-  CodeFoundation\FlowConfig\Interfaces\ConfigRepositoryInterface:
+  CodeFoundation\FlowConfig\Interfaces\Repository\ConfigRepositoryInterface:
     alias: CodeFoundation\FlowConfig\Repository\DoctrineConfig
     public: true
-  CodeFoundation\FlowConfig\Interfaces\EntityConfigRepositoryInterface:
+  CodeFoundation\FlowConfig\Interfaces\Repository\EntityConfigRepositoryInterface:
     alias: CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig
     public: true
-  CodeFoundation\FlowConfig\Interfaces\CompositeConfigRepositoryInterface:
+  CodeFoundation\FlowConfig\Interfaces\Repository\CompositeConfigRepositoryInterface:
     alias: CodeFoundation\FlowConfig\Repository\CascadeConfig
     public: true
 
