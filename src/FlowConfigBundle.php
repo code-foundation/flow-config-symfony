@@ -16,7 +16,7 @@ class FlowConfigBundle extends Bundle
      *
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         $ormCompilerClass = 'Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass';
         if (class_exists($ormCompilerClass)) {
@@ -69,7 +69,7 @@ class FlowConfigBundle extends Bundle
     /**
      * Get the full system path to the directory of the supplied class.
      *
-     * @param string $class
+     * @param class-string $class
      *
      * @return string
      *

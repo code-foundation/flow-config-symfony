@@ -1,3 +1,5 @@
 parameters:
     checkMissingIterableValueType: false
-
+    ignoreErrors:
+        - '#Parameter \#1 \$path of function dirname expects string, string\|false given.#'
+        - '#Method CodeFoundation\\FlowConfigBundle\\FlowConfigBundle::getEntityPath\(\) should return string but returns string\|false.#'
