@@ -67,9 +67,10 @@ class FlowConfigBundleServiceTest extends TestCase
      */
     public function testEmptyResults(): void
     {
+        /** @var \CodeFoundation\FlowConfig\Interfaces\Repository\ReadonlyConfigRepositoryInterface $configService */
         $configService = $this->getContainer()->get('flowconfig.system');
 
-        /** @var $configService \CodeFoundation\FlowConfig\Repository\DoctrineConfig */
+        /** @var \CodeFoundation\FlowConfig\Repository\DoctrineConfig $configService */
         $response = $configService->get('abc');
 
         self::assertNull($response);
@@ -80,10 +81,10 @@ class FlowConfigBundleServiceTest extends TestCase
      */
     public function testEmptyResultsEntity(): void
     {
+        /** @var \CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig $configService */
         $configService = $this->getContainer()->get('flowconfig.entity');
         $entity = new EntityStub('user', '888');
 
-        /** @var $configService \CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig */
         $response = $configService->getByEntity($entity, 'key.setting');
 
         self::assertNull($response);
@@ -94,8 +95,11 @@ class FlowConfigBundleServiceTest extends TestCase
      */
     public function testDefaults(): void
     {
+        /** @var \CodeFoundation\FlowConfig\Interfaces\Repository\ReadonlyConfigRepositoryInterface $roConfig */
         $roConfig = $this->getContainer()->get('flowconfig.ro');
+        /** @var \CodeFoundation\FlowConfig\Repository\DoctrineConfig $systemConfig */
         $systemConfig = $this->getContainer()->get('flowconfig.system');
+        /** @var \CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig $entityConfig */
         $entityConfig = $this->getContainer()->get('flowconfig.entity');
         $entity = new EntityStub('user', '123456');
 
@@ -113,9 +117,13 @@ class FlowConfigBundleServiceTest extends TestCase
      */
     public function testSystemOverridesDefault(): void
     {
+        /** @var \CodeFoundation\FlowConfig\Interfaces\Repository\ReadonlyConfigRepositoryInterface $roConfig */
         $roConfig = $this->getContainer()->get('flowconfig.ro');
+        /** @var \CodeFoundation\FlowConfig\Repository\DoctrineConfig $systemConfig */
         $systemConfig = $this->getContainer()->get('flowconfig.system');
+        /** @var \CodeFoundation\FlowConfig\Repository\DoctrineEntityConfig $entityConfig */
         $entityConfig = $this->getContainer()->get('flowconfig.entity');
+        /** @var \CodeFoundation\FlowConfig\Repository\CascadeConfig $flowConfig */
         $flowConfig = $this->getContainer()->get('flowconfig.cascade');
         $entity = new EntityStub('user', '123456');
         $systemConfig->set('user.email.format', 'html');
@@ -145,6 +153,7 @@ class FlowConfigBundleServiceTest extends TestCase
         $kernel = new BundleTestKernel('test', true);
         $kernel->boot();
         $this->container = $kernel->getContainer();
+        /** @var \Doctrine\ORM\EntityManager $entityManager */
         $entityManager = $this->container->get('doctrine.orm.default_entity_manager');
 
         $schemaTool = new SchemaTool($entityManager);
