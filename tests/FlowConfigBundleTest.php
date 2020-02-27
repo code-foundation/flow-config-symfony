@@ -40,7 +40,7 @@ class FlowConfigBundleTest extends TestCase
         $kernel = new BundleTestKernel('test', true);
         $kernel->boot();
         $container = $kernel->getContainer();
-        /** @var $entityManager \Doctrine\ORM\EntityManager */
+        /** @var \Doctrine\ORM\EntityManager $entityManager */
         $entityManager = $container->get('doctrine.orm.default_entity_manager');
 
         $configItemData = $entityManager->getClassMetadata(ConfigItem::class);

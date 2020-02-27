@@ -13,7 +13,12 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 class BundleTestKernel extends Kernel
 {
-    public function registerBundles()
+    /**
+     * Return list of bundles for running a minimal test kernel.
+     *
+     * @return \Symfony\Component\HttpKernel\Bundle\BundleInterface[]
+     */
+    public function registerBundles(): array
     {
         return [
             new DoctrineBundle(),
@@ -21,7 +26,14 @@ class BundleTestKernel extends Kernel
         ];
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    /**
+     * Load the local configuration for this test kernel.
+     *
+     * @param \Symfony\Component\Config\Loader\LoaderInterface $loader
+     *
+     * @throws \Exception
+     */
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__ . '/config/doctrine.yaml');
         $loader->load(__DIR__ . '/config/flow_config.yaml');
