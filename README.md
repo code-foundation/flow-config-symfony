@@ -10,6 +10,8 @@ Flow Config is a key value configuration platform built on top of doctrine. It p
 
 This package provides a Symfony 4 bundle for installing flow-config.
 
+See https://github.com/code-foundation/flow-config
+
 # Installation
 
 ```php
@@ -60,6 +62,7 @@ Entities passed to `setByEntity()` and `getByEntity()` must implement `CodeFound
 # Contact
 
 Github: https://github.com/code-foundation/flow-config-symfony
+
 Email: contact@codefoundation.com.au
 
 # License
