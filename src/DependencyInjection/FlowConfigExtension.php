@@ -20,8 +20,13 @@ class FlowConfigExtension extends Extension
 
     /**
      * {@inheritdoc}
+     *
+     * @param string[][] $configs Additional configuration to process from the flow_config tree.
+     *
+     * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException Yaml file is missing a key.
+     * @throws \Exception While is not readable/parsable.
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
             $container,
