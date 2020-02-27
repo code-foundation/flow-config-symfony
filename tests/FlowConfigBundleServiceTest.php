@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace CodeFoundation\FlowConfigBundle\Tests;
 
-use CodeFoundation\FlowConfig\Interfaces\CompositeConfigRepositoryInterface;
-use CodeFoundation\FlowConfig\Interfaces\ConfigRepositoryInterface;
-use CodeFoundation\FlowConfig\Interfaces\EntityConfigRepositoryInterface;
-use CodeFoundation\FlowConfig\Interfaces\ReadonlyConfigRepositoryInterface;
+use CodeFoundation\FlowConfig\Interfaces\Repository\CompositeConfigRepositoryInterface;
+use CodeFoundation\FlowConfig\Interfaces\Repository\ConfigRepositoryInterface;
+use CodeFoundation\FlowConfig\Interfaces\Repository\EntityConfigRepositoryInterface;
+use CodeFoundation\FlowConfig\Interfaces\Repository\ReadonlyConfigRepositoryInterface;
 use CodeFoundation\FlowConfigBundle\Tests\Fixtures\BundleTestKernel;
 use CodeFoundation\FlowConfigBundle\Tests\Stubs\EntityStub;
 use CodeFoundation\FlowConfig\Entity\ConfigItem;
